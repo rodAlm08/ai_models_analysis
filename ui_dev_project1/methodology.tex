@@ -1,0 +1,83 @@
+\chapter{Methodology}
+
+\section{Data Pre-processing}
+One of the biggest challenges in machine learning is the quality of the data. The quality of the data is crucial to the performance of the model. 
+The data pre-processing phase is a critical step in the machine learning pipeline. It involves cleaning, transforming, and preparing the data for the model. 
+The data pre-processing phase includes the following steps
+
+\subsubsection{Imbalanced Dataset}
+The dataset is imbalanced, which means that the number of instances for each class is not equal. The imbalanced dataset can lead to poor performance of the model.
+
+Below are the number of instances for each class in the dataset:    
+\begin{itemize}
+    \item \textbf{Driving Style:}
+    \begin{itemize}
+        \item EvenPaceStyle: 21,016 instances
+        \item AggressiveStyle: 2,759 instances
+    \end{itemize}
+    \item \textbf{Road Surface Condition:}
+    \begin{itemize}
+        \item SmoothCondition: 14,237 instances
+        \item UnevenCondition: 6,289 instances
+        \item FullOfHolesCondition: 3,249 instances
+    \end{itemize}
+    \item \textbf{Traffic Condition:}
+    \begin{itemize}
+        \item LowCongestionCondition: 17,764 instances
+        \item HighCongestionCondition: 3,017 instances
+        \item NormalCongestionCondition: 2,994 instances
+    \end{itemize}
+\end{itemize}
+
+For this project \textbf{Driving Style} class column was chosen due to its significant imbalance and potential for improvement. 
+The \textbf{AggressiveStyle} class has 2,759 instances while the \textbf{EvenPaceStyle} class has 21,016 instances. The dataset is imbalanced, 
+and the model may be biased towards the majority class. 
+
+\section{Data Labelling}
+For the categorical variables (roadSurface, traffic, drivingStyle), needs to convert these into a format that can be used for machine learning models. 
+Since drivingStyle is your target variable, let's focus on roadSurface and traffic. 
+
+First it was needed to handle the missing values in the dataset. The missing values were replaced with the mean of the column.
+Table below show the number of missing values in the dataset per column.
+
+\begin{table}[ht]
+    \centering
+    \caption{Missing Values in the Dataset}
+    \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Column}                   & \textbf{Missing Values} \\ \hline
+    VehicleSpeedInstantaneous         & 9                       \\ \hline
+    EngineLoad                        & 5                       \\ \hline
+    EngineCoolantTemperature          & 5                       \\ \hline
+    ManifoldAbsolutePressure          & 5                       \\ \hline
+    EngineRPM                         & 5                       \\ \hline
+    MassAirFlow                       & 5                       \\ \hline
+    IntakeAirTemperature              & 5                       \\ \hline
+    FuelConsumptionAverage            & 5                       \\ \hline
+\end{tabular}
+\end{table}
+    
+
+
+
+As this is a classification problem, the categorical variables need to be converted into a numerical format.
+
+
+
+
+\section{Data Scaling}
+Feature scaling is a method used to standardize the range of independent variables or features of the data. In data processing, it is also known as data 
+normalization and is generally performed during the data pre-processing step.
+The \textbf{Standard Scaler} was used to scale the data. The Standard Scaler standardizes the features by removing the mean and scaling to unit variance.
+This results in a distribution with a standard deviation of 1 and a mean of 0. The formula for standard scaling is given by:
+\begin{equation}
+    z = \frac{x - \mu}{\sigma}
+\end{equation}
+
+The scaler subtracts the mean of the feature and then divides by the standard deviation.
+
+\section{Data Analysis and Visualisation}
+
+\section{Other Techniques}
+
+
