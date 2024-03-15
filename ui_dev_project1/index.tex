@@ -29,6 +29,7 @@
 \pagestyle{fancy}
 \renewcommand\headrulewidth{1pt}
 \usepackage{float}
+\usepackage{listings}
 
 %------------------------------------------------------------------------------------------------------
 %	The following are the RGB values for the official ATU colours.
@@ -56,7 +57,15 @@
 
 
 
-
+% Set geometry
+\geometry{
+    top=2cm,
+    bottom=2cm,
+    left=2cm,
+    right=2cm,
+    headheight=27.11469pt,
+    includeheadfoot
+}
 
 %------------------------------------------------------------------------------------------------------	
 % WARNING: Don't mess with any of the following unless you know what you are doing.
@@ -99,9 +108,9 @@
 \normalsize
 \textbf{By \\ \textcolor{ATUGreen}{\reportauthor}}\\ 
 \vspace{15mm}
-{\scshape \today} \\[0.3\baselineskip]
+% {\scshape \today} \\[0.3\baselineskip]
 \vspace{75mm}
-\Large {\textcolor{ATUGreen}{\textbf{{\reporttype}}}} \\
+% \Large {\textcolor{ATUGreen}{\textbf{{\reporttype}}}} \\
 \bigskip
 \normalsize
 \textbf{Department of Computer Science \& Applied Physics,\\School of Science \& Computing,\\Atlantic Technological University (ATU), Galway.}\\

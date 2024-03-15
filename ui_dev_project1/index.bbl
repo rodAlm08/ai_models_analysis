@@ -1,0 +1,10 @@
+\begin{thebibliography}{1}
+
+\bibitem{website:smote}
+Imbalanced-learn.
+\newblock Smote.
+\newblock
+  \url{https://imbalanced-learn.org/stable/references/generated/imblearn.over_sampling.SMOTE.html}.
+\newblock Accessed: 15/03/2024.
+
+\end{thebibliography}
