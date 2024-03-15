@@ -1,0 +1,87 @@
+\documentclass{report}
+
+% Add missing packages
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{csquotes} 
+\usepackage{bookmark}
+\usepackage{graphicx}
+\usepackage{lipsum} 
+\usepackage{listings}
+\usepackage{float}
+\usepackage{datetime}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{eurosym}
+\usepackage{pbox}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multirow}
+\usepackage{multicol} 
+\usepackage{tikz}
+\usepackage[absolute]{textpos} 
+\usepackage{colortbl}
+\usepackage{array}
+\usepackage{geometry}
+\usepackage{biblatex}
+\usepackage{caption}
+
+
+% Set up hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Define header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{Gesture AI Project Report}
+\fancyhead[L]{Rodrigo Almeida}
+\fancyfoot[C]{\thepage}
+
+% Set header rule width
+\renewcommand{\headrulewidth}{1pt}
+
+% Adjust margins
+\geometry{
+    a4paper,
+    top=0.in,
+    bottom=0.5in,
+    left=1in,
+    right=1in,
+}
+
+\addbibresource{references.bib}
+
+\title{Gesture AI Project Report}
+\author{Rodrigo Almeida}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\clearpage
+\pagenumbering{arabic}  
+\pagestyle{fancy}
+
+% Chapters
+\include{introduction}
+\include{methodology}
+\include{evaluation}
+\include{conclusion}
+
+
+% Bibliography
+\printbibliography
+
+\end{document}

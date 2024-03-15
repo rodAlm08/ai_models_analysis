@@ -4,7 +4,6 @@
 One of the biggest challenges in machine learning is the quality of the data. The quality of the data is crucial to the performance of the model. 
 The data pre-processing phase is a critical step in the machine learning pipeline. It involves cleaning, transforming, and preparing the data for the model. 
 
-
 \subsubsection{Imbalanced Dataset}
 On the dataset, the number of instances for each class is not equal. The imbalanced dataset can lead to poor performance of the model. 
 
@@ -32,14 +31,25 @@ Below are the number of instances for each class in the dataset:
 
 For this project \textbf{Driving Style} class column was chosen due to its significant imbalance and potential for improvement. 
 The \textbf{AggressiveStyle} class has 2,759 instances while the \textbf{EvenPaceStyle} class has 21,016 instances. The dataset is imbalanced, 
-and the model may be biased towards the majority class. 
+and the model may be biased towards the majority class. To resolve the issue of imbalanced dataset that was observed, the use of other techniques such as over-sampling and under-sampling was considered.
+SMOTE (Syntetic Minority Over-sampling) which is a statistical technique for increasing the number of instances in the minority class was used. SMOTE works by selecting
+examples that are close in the feature space, drawing a line between the examples in the feature space and drawing a new sample at a point along that line. 
+It does have some limitations, such as the generation of noisy samples, but it is a widely used technique for dealing with imbalanced datasets. \cite{fernandez2018smote}. 
+Below is how the \textbf{Driving Style} dataset looks like after applying SMOTE.
 
-First thing that was done to the dataset was to remove the Unnamed: 0 column. This column was not needed for the analysis and was removed from the dataset.
-Then it was found that there were missing values in the dataset as shown in Table ~\ref{tab:missing_values}.
+\begin{itemize}
+    \item \textbf{Driving Style:}
+    \begin{itemize}
+        \item EvenPaceStyle: 16,808 instances
+        \item AggressiveStyle: 16,808 instances
+    \end{itemize}
+\end{itemize}
 
-\begin{table}[ht]
-    \centering
-    \label{tab:missing_values}
+With the dataset now balanced, the next step was to remove the \textbf{Unnamed: 0} column. This column was not needed for the analysis and was removed from the dataset.
+After having that completed it was found that there were missing values in the dataset as shown in Table \ref{table:data_missing_values}.
+
+\begin{table}[H]
+    \centering    
     \begin{tabular}{|l|l|}
     \hline
     \textbf{Column}                   & \textbf{Missing Values} \\ \hline
@@ -53,17 +63,19 @@ Then it was found that there were missing values in the dataset as shown in Tabl
     FuelConsumptionAverage            & 5                       \\ \hline
     \end{tabular}
     \caption{Missing Values in the Dataset}
+    \label{table:data_missing_values}
 \end{table}
 
 Due to the small number of missing values relative to the size of the dataset, imputation seems to be a pratical approach. For the numerical columns with missing values, it can be filled
-with the mean or median of the column. For the categorical columns, the missing values can be filled with the mode of the column.
+with the mean or median of the column. For the categorical columns, the missing values can be filled with the mean of the column.
 In this case was chosen to fill the missing values with the mean of the column, as it data is normally distributed.
 
 \section{Data Labelling}
+
 For the categorical variables (roadSurface, traffic, drivingStyle), needs to convert these into a format that can be used for machine learning models. 
 Since \textbf{drivingStyle} is the target variable, the focus will be on \textbf{roadSurface} and \textbf{traffic}. The continuos features, on columns such as \textbf{AltitudeVariation}, 
 \textbf{VehicleSpeedInstantaneous}, \textbf{VehicleSpeedVariation}, are now standardized centered around 0(mean) and 1(standard deviation). 
-The raget variable \textbf{drivingStyle} is encoded using the \textbf{LabelEncoder} from the \textbf{sklearn.preprocessing} module, and is now represented as 0 and 1.
+The target variable \textbf{drivingStyle} was then encoded using the \textbf{LabelEncoder} from the \textbf{sklearn.preprocessing} module, and is now represented as 0 and 1.
 The categorical variables \textbf{roadSurface} and \textbf{traffic} are encoded using the \textbf{OneHotEncoder} from the \textbf{sklearn.preprocessing} module. Each column represents
 the presence (True/1) or absence (False/0) of a category.
 
@@ -88,7 +100,7 @@ k-Nearest Neighbors (kNN), and Logistic Regression used in this project.
 
 As part of the analysis aiming to classify the driving styles, the data was visualized to understand the distribution of the features and the relationship between the features 
 and the target variable. It was used the PCA (Principal Component Analysis) to visualize the data in 2D. The PCA is a dimensionality reduction technique that is used to reduce the
-dimensionality of the data to 2 or 3 dimensions so that it can be visualized. 
+dimensionality of the data to 2 or 3 dimensions so that it can be visualized. \cite{niedoba2014multi}
 
 \begin{figure}[H]
     \centering
@@ -97,7 +109,7 @@ dimensionality of the data to 2 or 3 dimensions so that it can be visualized.
     \label{fig:pca}
 \end{figure}
 
-Figure ~\ref{fig:pca} shows the PCA visualization of the data. The data is not linearly separable, and the classes are not well separated. This suggests that the data is not
+Figure \ref{fig:pca} shows the PCA visualization of the data. The data is not linearly separable, and the classes are not well separated. This suggests that the data is not
 linearly separable and that a linear model may not be the best choice for this dataset.
 The axes are labelled as PC1: VehicleSpeedInstantaneous and PC2: RoadSurface\_UnevenCondition, which implies that these two features contributes most to the variance in the data.
 VehicleSpeedInstantaneous might be defining characteristic of the driving style, while RoadSurface\_UnevenCondition might also influence the driving style.
@@ -105,158 +117,5 @@ Despite some level of separation, there is also a significant overlap between th
 may be a wide range of behaviours  within each style that could cause this overlap.
 The presence of clusters in the data suggests potential for classification models to predict the driving style based on the features.
 
-\section{Support Vector Machine Model}
-For the spport vector machine model, the kernel was fixed to linear considering the nature of the dataset, which suggests linear separability of driving styles. The focus was on the tuning
-of the hyperparameters, such as the regularization parameter $C$, which controls the trade off between achienving a low training error and a low testing error. 
-A range of $C$ values were tested to find the optimal value. The model was trained using the \textbf{GridSearchCV} method from the \textbf{sklearn.model\_selection} module.
-
-The best $C$ parameter was identified through cross-validation, optimizing for model accuracy. The best parameters and corresponding score obtained from the grid search were 
-accessed via \texttt{svm\_grid.best\_params\_} and \texttt{svm\_grid.best\_score\_}, respectively.
-
-After finding the best parameters, the model was trained using the best parameters and the accuracy of the model was evaluated returning a score of 0.88. Showing that the model was able 
-to predict the driving style with an accuracy of 88\%. But then, when running the classification report, it was found that the model was biased towards the majority class as shown in Table
-\ref{table:svm_classification_report}. It is shown that the model was able to predict the majority class with a precision of 0.88 and a recall of 1.00, but the minority class was not
-predicted at all. This is a clear indication of the model bias towards the majority class, this is due to the imbalanced nature of the dataset.
-
-\begin{table}[H]
-    \centering
-    
-    \begin{tabular}{|l|}
-    \hline
-    \textbf{Classification Report} \\
-    \hline
-    \begin{tabular}{|l|c|c|c|c|}
-    \hline
-    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\ \hline
-    0              & 0.00               & 0.00            & 0.00              & 547              \\ \hline
-    1              & 0.88               & 1.00            & 0.94              & 4208             \\ \hline
-    \textbf{Accuracy} & \multicolumn{4}{c|}{0.88}                                \\ \hline
-    \textbf{Macro Avg} & 0.44              & 0.50            & 0.47              & 4755             \\ \hline
-    \textbf{Weighted Avg} & 0.78             & 0.88            & 0.83              & 4755             \\ \hline
-    \end{tabular} \\
-    \hline
-    \end{tabular}
-    \caption{Classification Report}
-    \label{table:classification_report}
-\end{table}
-
-\begin{table}[H]
-    \centering
-   
-    \begin{tabular}{|c|c|c|}
-    \hline
-    \multicolumn{3}{|c|}{\textbf{Confusion Matrix}} \\
-    \hline
-    \textbf{Actual/Predicted} & \textbf{0} & \textbf{1} \\ \hline
-    \textbf{0} & 0 & 547 \\ \hline
-    \textbf{1} & 0 & 4208 \\ \hline
-    \end{tabular}
-    \caption{Confusion Matrix}
-    \label{table:confusion_matrix}
-\end{table}
-
-
-
-To resolve the issue of imbalanced dataset that was observed in the SVM model, the use of other techniques such as over-sampling and under-sampling was considered.
-SMOTE (Syntetic Minority Over-sampling) which is a statistical technique for increasing the number of instances in the minority class was used. SMOTE works by selecting
-examples that are close in the feature space, drawing a line between the examples in the feature space and drawing a new sample at a point along that line. 
-It does have some limitations, such as the generation of noisy samples, but it is a widely used technique for dealing with imbalanced datasets. \cite{website:smote} 
-Table \ref{table:svm_classification_report_smote} shows that the application of SMOTE improved the models ability to predict the minority class, which was not predicted at all 
-in the previous model. There seems to be be a trade-off; as recall increased, precision decreased. This is expected as the model is now predicting more instances of the minority class.
-The F1-score is more balanced, as it is now giving equal weight to both classes. This suggests that while accuracy is lower, the model is now more fair and balanced in its predictions.
-
-\begin{table}[H]
-    \centering
-    
-    \begin{tabular}{|l|}
-    \hline
-    \textbf{Classification Report} \\
-    \hline
-    \begin{tabular}{|l|c|c|c|c|}
-    \hline
-    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\ \hline
-    0              & 0.23               & 0.77            & 0.35              & 547              \\ \hline
-    1              & 0.96               & 0.67            & 0.79              & 4208             \\ \hline
-    \textbf{Accuracy} & \multicolumn{4}{c|}{0.68}                                \\ \hline
-    \textbf{Macro Avg} & 0.59              & 0.72            & 0.57              & 4755             \\ \hline
-    \textbf{Weighted Avg} & 0.87             & 0.68            & 0.74              & 4755             \\ \hline
-    \end{tabular} \\
-    \hline
-    \end{tabular}
-    \caption{Classification Report}
-    \label{table:classification_report_smote}
-\end{table}
-
-\begin{table}[H]
-    \centering
-   
-    \begin{tabular}{|c|c|c|}
-    \hline
-    \multicolumn{3}{|c|}{\textbf{Confusion Matrix}} \\
-    \hline
-    \textbf{Actual/Predicted} & \textbf{0} & \textbf{1} \\ \hline
-    \textbf{0} & 421 & 126 \\ \hline
-    \textbf{1} & 1405 & 2803 \\ \hline
-    \end{tabular}
-    \caption{Confusion Matrix}
-    \label{table:confusion_matrix_smote}
-\end{table}
-
-\section{Linear Regression Model}
-Now with the knowledge about the imbalanced dataset, the new dataset processed with SMOTE was used to train the linear regression model. To find the best parameters for the model,
-the \textbf{GridSearchCV} method was used to find the best parameters for the model. The best parameters and corresponding score obtained from the grid search were
-
-
-\begin{table}[H]
-    \centering
-    
-    \begin{tabular}{|l|c|c|c|c|}
-    \hline
-    \textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-score} & \textbf{Support} \\ \hline
-    0 & 0.24 & 0.71 & 0.36 & 547 \\ \hline
-    1 & 0.95 & 0.71 & 0.81 & 4208 \\ \hline
-    \textbf{Accuracy} & \multicolumn{4}{c|}{0.71} \\ \hline
-    \textbf{Macro Avg} & 0.59 & 0.71 & 0.58 & 4755 \\ \hline
-    \textbf{Weighted Avg} & 0.87 & 0.71 & 0.76 & 4755 \\ \hline
-    \end{tabular}
-    \caption{Classification Report}
-    \label{table:classification_report}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    
-    \begin{tabular}{|c|c|c|}
-    \hline
-    \multicolumn{3}{|c|}{\textbf{Confusion Matrix}} \\ \hline
-    \textbf{Actual/Predicted} & \textbf{0} & \textbf{1} \\ \hline
-    \textbf{0} & 391 & 156 \\ \hline
-    \textbf{1} & 1240 & 2968 \\ \hline
-    \end{tabular}
-    \caption{Confusion Matrix}
-    \label{table:confusion_matrix}
-\end{table}
-
-
-After optimizing the model parameters and evaluating its predictive performance, it is important to understand which features contribute most significantly to the model's predictions. 
-In logistic regression, the coefficients associated with each feature can indicate the importance and influence of that feature on the model's output. 
-
-To visualize the impact of each feature, a coefficient plot can be constructed. This plot ranks the features by their coefficients, providing clear insights into which features are 
-most informative for predicting the target variable.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\textwidth]{images/feature_importance.png} 
-    \caption{Top 10 Feature Importances in the Logistic Regression Model}
-    \label{fig:feature_importances}
-\end{figure}
-
-This coefficient plot shows the relative importance of features in predicting driving styles. Features with larger absolute values of coefficients have a greater impact on the model's 
-decision-making process. It is a good way to understand which features are most important for the model's predictions. The top 10 features are shown in Figure ~\ref{fig:feature_importances}.
-
-\section{K-Nearest Neighbors Model}
-
-    
-\section{Other Techniques}
 
 
