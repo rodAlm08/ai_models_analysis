@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-    <img src="./images/ATU_Logo-removebg-preview.png" width="60%" alt="ATU Logo">
+    <img src="./GestureAIProject/images/ATU_Logo-removebg-preview.png" width="60%" alt="ATU Logo">
 </div>
 
 # Driving Style Classification Project Repository
