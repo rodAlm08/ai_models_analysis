@@ -7,18 +7,15 @@
 Rodrigo Almeida - G00377123
 
 ## Overview
-This repository contains the work and analysis performed for the machine learning project focused on classifying driving styles based on various parameters collected through vehicle telematics. The project utilizes several machine learning algorithms to predict driving styles, emphasizing the differences in performance across Support Vector Machine (SVM), Logistic Regression, and k-Nearest Neighbors (kNN) models.
+This repository contains the work and analysis performed for the machine learning project focused on classifying driving styles based on various parameters collected through vehicle telematics. The project utilizes several machine learning algorithms to predict driving styles, emphasizing the differences in performance across Support Vector Machine (SVM), Logistic Regression, and k-nearest Neighbors (kNN) models.
 
 ## Repository Structure
 
 ### .gitignore: 
 Ensures temporary files and folders not essential for version control are ignored.
 
-### analysis.ipynb: 
+### project.ipynb: 
 A comprehensive Jupyter notebook containing the analysis, comparisons of machine learning models, and visualizations of the dataset and results.
-
-### requirements.txt: 
-Lists all the Python libraries required to run the analysis notebook.
 
 # Getting Started
 
