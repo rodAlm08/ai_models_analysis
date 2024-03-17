@@ -3,12 +3,11 @@
 \section{Classifier Models}
 
 \section{Support Vector Machine Model}
-For the spport vector machine model, the kernel was fixed to linear considering the nature of the dataset, which suggests linear separability of driving styles. The focus was on the tuning
-of the hyperparameters, such as the regularization parameter $C$, which controls the trade off between achienving a low training error and a low testing error. 
-A range of $C$ values were tested to find the optimal value. The model was trained using the \textbf{GridSearchCV} method from the \textbf{sklearn.model\_selection} module.
-
-The best $C$ parameter was identified through cross-validation, optimizing for model accuracy. The best parameters and corresponding score obtained from the grid search were 
+Before training the model with the Support Vector Machine (SVM), a range of $C$ values and Kernels - linear, poly, rbf and sigmoid were tested to find the optimal value. The model 
+was trained using the \textbf{GridSearchCV} method from the \textbf{sklearn.model\_selection} module.
+The best $C$ and best $Kernel$ parameters were identified through cross-validation, optimizing for model accuracy. The best parameters and corresponding score obtained from the grid search were 
 accessed via \texttt{svm\_grid.best\_params\_} and \texttt{svm\_grid.best\_score\_}, respectively.
+For this model the best parameters were $C=$ and $Kernel=$. 
 
 Before proceding to evaluate the model with the balanced and pre-processed dataset, the model was trained using the original dataset to see how it would perform. The accuracy of the model
 was evaluated returning a score of 0.88. But then, when running the classification report, it was found that the model was biased towards the majority class as shown in 
