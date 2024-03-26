@@ -70,34 +70,70 @@
       \field{pages}{863\bibrangedash 905}
       \range{pages}{43}
     \endentry
-    \entry{niedoba2014multi}{article}{}
-      \name{author}{1}{}{%
-        {{hash=7f8df24c466f329a8df68250b279969f}{%
-           family={Niedoba},
-           familyi={N\bibinitperiod},
-           given={Tomasz},
-           giveni={T\bibinitperiod}}}%
+    \entry{app12105256}{article}{}
+      \name{author}{7}{}{%
+        {{hash=98e9ea4e364083b02b2ddd4bc4511267}{%
+           family={Shin},
+           familyi={S\bibinitperiod},
+           given={Jungpil},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a4a87e3d5f14945158ebb62ed9de17e7}{%
+           family={Maniruzzaman},
+           familyi={M\bibinitperiod},
+           given={Md.},
+           giveni={M\bibinitperiod}}}%
+        {{hash=742481203f8c9e7847f7f2a240fbc2f1}{%
+           family={Uchida},
+           familyi={U\bibinitperiod},
+           given={Yuta},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=517448d76f10b9dcddfaab290e75ca53}{%
+           family={Hasan},
+           familyi={H\bibinitperiod},
+           given={Md.\bibnamedelimi Al\bibnamedelima Mehedi},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=4ba9a6548edb8ee507e2778fac8e4b6f}{%
+           family={Megumi},
+           familyi={M\bibinitperiod},
+           given={Akiko},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d080ee8c687371bc46c0afdb2595a9f6}{%
+           family={Suzuki},
+           familyi={S\bibinitperiod},
+           given={Akiko},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a9092f278506a30ebaac69100981ae72}{%
+           family={Yasumura},
+           familyi={Y\bibinitperiod},
+           given={Akira},
+           giveni={A\bibinitperiod}}}%
       }
-      \list{publisher}{1}{%
-        {Politechnika Wroc{ł}awska. Oficyna Wydawnicza Politechniki Wroc{ł}awskiej}%
-      }
-      \strng{namehash}{7f8df24c466f329a8df68250b279969f}
-      \strng{fullhash}{7f8df24c466f329a8df68250b279969f}
-      \strng{bibnamehash}{7f8df24c466f329a8df68250b279969f}
-      \strng{authorbibnamehash}{7f8df24c466f329a8df68250b279969f}
-      \strng{authornamehash}{7f8df24c466f329a8df68250b279969f}
-      \strng{authorfullhash}{7f8df24c466f329a8df68250b279969f}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \strng{namehash}{0657fb343e4e3e6f5999c05597feb3f1}
+      \strng{fullhash}{8aea307d2c746b3035eb8fdb021829d1}
+      \strng{bibnamehash}{0657fb343e4e3e6f5999c05597feb3f1}
+      \strng{authorbibnamehash}{0657fb343e4e3e6f5999c05597feb3f1}
+      \strng{authornamehash}{0657fb343e4e3e6f5999c05597feb3f1}
+      \strng{authorfullhash}{8aea307d2c746b3035eb8fdb021829d1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{physicochemical problems of Mineral processing}
-      \field{number}{2}
-      \field{title}{Multi-parameter data visualization by means of principal component analysis (PCA) in qualitative evaluation of various coal types}
-      \field{volume}{50}
-      \field{year}{2014}
-      \field{pages}{575\bibrangedash 589}
-      \range{pages}{15}
+      \field{abstract}{The classification of different age groups, such as adult and child, based on handwriting is very important due to its various applications in many different fields. In forensics, handwriting classification helps investigators focus on a certain category of writers. This paper aimed to propose a machine-learning (ML)-based approach for automatically classifying people as adults or children based on their handwritten data. This study utilized two types of handwritten databases: handwritten text and handwritten pattern, which were collected using a pen tablet. The handwritten text database had 57 subjects (adult: 26 vs. child: 31). Each subject (adult or child) wrote the same 30 words using Japanese hiragana characters. The handwritten pattern database had 81 subjects (adult: 42 and child: 39). Each subject (adult or child) drew four different lines as zigzag lines (trace condition and predict condition), and periodic lines (trace condition and predict condition) and repeated these line tasks three times. Handwriting classification of adult and child is performed in three steps: (i) feature extraction; (ii) feature selection; and (iii) classification. We extracted 30 features from both handwritten text and handwritten pattern datasets. The most efficient features were selected using sequential forward floating selection (SFFS) method and the optimal parameters were selected. Then two ML-based approaches, namely, support vector machine (SVM) and random forest (RF) were applied to classify adult and child. Our findings showed that RF produced up to 93.5% accuracy for handwritten text and 89.8% accuracy for handwritten pattern databases. We hope that this study will provide the evidence of the possibility of classifying adult and child based on handwriting text and handwriting pattern data.}
+      \field{issn}{2076-3417}
+      \field{journaltitle}{Applied Sciences}
+      \field{number}{10}
+      \field{title}{Important Features Selection and Classification of Adult and Child from Handwriting Using Machine Learning Methods}
+      \field{volume}{12}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.3390/app12105256
+      \endverb
+      \verb{urlraw}
+      \verb https://www.mdpi.com/2076-3417/12/10/5256
+      \endverb
+      \verb{url}
+      \verb https://www.mdpi.com/2076-3417/12/10/5256
+      \endverb
     \endentry
   \enddatalist
 \endrefsection
