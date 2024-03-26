@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-    <img src="./GestureAIProject/images/ATU_Logo-removebg-preview.png" width="60%" alt="ATU Logo">
+    <img src="./images/ATU_Logo-removebg-preview.png" width="60%" alt="ATU Logo">
 </div>
 
 # Driving Style Classification Project Repository
@@ -7,7 +7,8 @@
 Rodrigo Almeida - G00377123
 
 ## Overview
-This repository contains the work and analysis performed for the machine learning project focused on classifying driving styles based on various parameters collected through vehicle telematics. The project utilizes several machine learning algorithms to predict driving styles, emphasizing the differences in performance across Support Vector Machine (SVM), Logistic Regression, and k-nearest Neighbors (kNN) models.
+This repository contains the work and analysis performed for the machine learning project focused on classifying driving styles based on various parameters collected 
+through On-Board Diagnosis II (OBD-II) interfaces in vehicles and accelerometers embedded in smartphones. The project utilizes several machine learning algorithms to predict driving styles, emphasizing the differences in performance across Support Vector Machine (SVM), Logistic Regression, and k-nearest Neighbors (kNN) models.
 
 ## Repository Structure
 
@@ -16,6 +17,15 @@ Ensures temporary files and folders not essential for version control are ignore
 
 ### project.ipynb: 
 A comprehensive Jupyter notebook containing the analysis, comparisons of machine learning models, and visualizations of the dataset and results.
+Click on the Badge to access the Jupyter Notebook.
+
+<a target="_blank" href="https://colab.research.google.com/github/rodAlm08/ui_project_one/blob/main/project.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+### Project Documentation in LaTeX
+This repository also includes a detailed project write-up in LaTeX format, with an analysis and documentation of the research conducted. The LaTeX document covers methodologies, results, and conclusions in detail. You can find this document in the repository named `main.tex` or he compiled version `main.pdf`.
+
 
 # Getting Started
 
@@ -34,13 +44,11 @@ Before you begin, ensure you have installed:
 
 `git clone https://github.com/rodAlm08/ui_project_one.git`
 
-
 ## Setup the Environment:
 
 1. Navigate to the cloned repository:
 
-`cd GestureAIProject`
-
+`cd UI_PROJECT_ONE`
 
 ## Run Jupyter Notebooks:
 
@@ -48,5 +56,9 @@ Before you begin, ensure you have installed:
 
 2. A new tab will open in your web browser with the Jupyter Notebook interface.
 
-3. Navigate to the `project.ipynb` notebook within the repository folder to view and execute the analysis.
+3. Navigate to the `project.ipynb` notebook within the repository folder to view and execute the analysis. Or click on the Badge to access the Jupyter Notebook.
+
+<a target="_blank" href="https://colab.research.google.com/github/rodAlm08/ui_project_one/blob/main/project.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
